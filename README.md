@@ -15,7 +15,7 @@ To fill out a schedule, simply click into any of the hour blocks in the day, and
 Lastly, the calendar itself has been color-coded to display blocks as "past", "present", or "future" blocks. When you are on the applicaiton, any time-blocks for past hours in the current day will be displayed as grey, the current hour will be displayed as red, and future hours will be displayed as green.   
 
 ## Screenshots
-[Homepage](./Assets/Images/Deployed_App.png)
+![Homepage](./Assets/Images/Deployed_App.png)
 
 ## Link to Deployed App
 
