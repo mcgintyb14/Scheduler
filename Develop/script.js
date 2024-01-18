@@ -19,6 +19,41 @@ $(function () {
     console.log("Clicked Save for:", timeBlockId, "with description:", description);
     localStorage.setItem(timeBlockId, description);
   });
+
+      // Time Block Coloring
+      function updateTimeBlockColor() {
+        var currentHour = dayjs().hour();
+    
+        $(".time-block").each(function () {
+          var blockHour = parseInt($(this).attr("id").split("-")[1]);
+    
+          if (blockHour < currentHour) {
+            $(this).removeClass("present future").addClass("past");
+          } else if (blockHour === currentHour) {
+            $(this).removeClass("past future").addClass("present");
+          } else {
+            $(this).removeClass("past present").addClass("future");
+          }
+        });
+      }
+
+      function displaySavedEvents() {
+        $(".time-block").each(function () {
+          var timeBlockId = $(this).attr("id");
+          var savedDescription = localStorage.getItem(timeBlockId);
+          $(this).children(".description").val(savedDescription);
+        });
+      }
+    
+      // Call functions on page load
+      updateTimeBlockColor();
+      displaySavedEvents();
+    
+      // Update time block colors every minute
+      // Update time block colors every minute
+      setInterval(updateTimeBlockColor, 60 * 1000);
+
+    });
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
